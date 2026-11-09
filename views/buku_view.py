@@ -5,7 +5,7 @@ class BukuView(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Sistem Manajemen Perpustakaan")
-        self.geometry("800x450")
+        self.geometry("800x530")
         
         # Konfigurasi Grid Utama (1 Baris, 2 Kolom)[cite: 14]
         self.grid_columnconfigure(0, weight=1)

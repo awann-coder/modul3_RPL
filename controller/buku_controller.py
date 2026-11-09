@@ -118,15 +118,15 @@ class BukuController:
                 messagebox.showerror("Error", "Gagal menghapus data.")
 
     def logout(self):
-        """
-        Fungsi Logout (Tugas 3) untuk menutup BukuView dan kembali ke LoginView
-        """
-        from views.login_view import LoginView
-        
+        """Fungsi Logout (Tugas 3) untuk menutup BukuView dan kembali ke Login via AuthController"""
         if messagebox.askyesno("Konfirmasi Logout", "Apakah Anda yakin ingin keluar dari sistem?"):
+            # 1. Tutup jendela dashboard saat ini
             self.view.destroy()
-            login_app = LoginView()
-            login_app.mainloop()
+            
+            # 2. Panggil kembali AuthController agar halaman login siap digunakan dengan fungsionalitas penuh
+            from controller.auth_controller import AuthController
+            auth_app = AuthController()
+            auth_app.run()
 
     # Fungsi untuk menyalakan aplikasi
     def run(self):
