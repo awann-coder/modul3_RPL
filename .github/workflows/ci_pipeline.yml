@@ -25,13 +25,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint with flake8
+            - name: 4. Pengecekan Kualitas Kode (flake8)
         run: |
-          # Mengabaikan warning panjang baris (E501) atau mengecualikan folder tertentu
-          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics
-          # Atau jika ingin memeriksa kode utama dengan toleransi tertentu:
-          flake8 controller/ views/ model/ --max-line-length=120 --ignore=E501,W293
+          flake8 controller/ model/ --count --select=E9,F63,F7,F82 --show-source --statistics
 
       - name: 5. Menjalankan Automated Unit Testing (Pytest)
         run: |
           python -m pytest -v
+
